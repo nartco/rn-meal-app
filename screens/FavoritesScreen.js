@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from 'react-redux'
 
 import MealList from "../components/MealList";
 import { MEALS } from "../data/dummy-data";
@@ -8,9 +9,10 @@ import HeaderButton from "../components/HeaderButton";
 
 
 const FavoritesScreen = props => {
-  const favoriteMeal = MEALS.filter(
-    MEAL => MEAL.id === "m1" || MEAL.id === "m2"
-  );
+
+  const favMeals = useSelector(state => state.meals.favoriteMeals)
+
+  
   return <MealList listData={favoriteMeal} navigation={props.navigation} />;
 };
 
