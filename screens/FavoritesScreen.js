@@ -13,7 +13,7 @@ const FavoritesScreen = props => {
   const favMeals = useSelector(state => state.meals.favoriteMeals)
 
   
-  return <MealList listData={favoriteMeal} navigation={props.navigation} />;
+  return <MealList listData={favMeals} navigation={props.navigation} />;
 };
 
 export default FavoritesScreen;
