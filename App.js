@@ -4,19 +4,20 @@ import * as Font from "expo-font";
 import { appLoading, AppLoading } from "expo";
 import { StyleSheet, Text, View } from "react-native";
 import { enableScreens } from 'react-native-screens'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
  
 import MealsNavigator from './navigation/MealsNavigator'
 import mealsReducer from './store/reducers/meals'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 enableScreens()
 
 const rootReducer = combineReducers({
   meals: mealsReducer
 })
+const store = createStore(rootReducer, composeWithDevTools())
 
-const store = createStore(rootReducer)
 
 export default function App() {
   
